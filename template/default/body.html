@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix well" role="complementary">
+        <ul class="nav bs-sidenav">
+            <li class="main active"><a href="#_1">通知</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9" role="main">
+
+    <h3 id="_1">通知<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+    <ul>
+        <li>服务器IP</li>
+        <li>
+            <p>10.16.40.75 </p>
+        </li>
+        <li>
+            <p>类别 </p>
+        </li>
+        <li>
+            <p>supervisor </p>
+        </li>
+        <li>
+            <p>配置路径</p>
+        </li>
+        <li>/etc/supervisord.d/notify.ini</li>
+        <li>配置详情</li>
+    </ul>
+    <p>```bash
+        [program:ordernotify]
+        command=/app/bin/php /data/html/mastersdk.gtarcade.com/protected/yiic.php notify
+        stdout_logfile=/data/html/mastersdk.gtarcade.com/supervisor_notify.log
+        stderr_logfile=/data/html/mastersdk.gtarcade.com/supervisor_notify__err.log
+        autostart=true
+        autorestart=true
+        numprocs=6
+        process_name=%(program_name)s_%(process_num)02d</p>
+    <pre class="codehilite"><code>### 主查
+
+- 服务器IP
+- 10.16.40.75
+
+- 类别 
+- supervisor 
+
+- 配置路径
+- /etc/supervisord.d/transaction.ini
+- 配置详情
+
+```bash
+[program:ordertransaction]
+command=/app/bin/php /data/html/mastersdk.gtarcade.com/protected/yiic.php transaction
+stdout_logfile=/data/html/mastersdk.gtarcade.com/supervisor_transaction.log
+stderr_logfile=/data/html/mastersdk.gtarcade.com/supervisor_transaction__err.log
+autostart=true
+autorestart=true
+numprocs=6
+process_name=%(program_name)s_%(process_num)02d</code></pre>
+</div>
+{% endblock body %}
