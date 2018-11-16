@@ -1,5 +1,5 @@
-bin
-docs
-site
+bin/
+docs/
+site/
 config.yaml
 nav.yaml
