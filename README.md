@@ -9,7 +9,7 @@ Modoc 是一个用于创建项目文档的 HTML 静态站点生成工具. 文档
 ## 安装
 
  - 从源码安装
- - 直接下载可执行程序
+ - 直接下载可执行程序
     - Windows平台: [modoc-win.exe](modoc-win.exe)
     - Mac平台: [modoc-mac](modoc-mac)
     - Linux平台: [modoc-linux](modoc-linux)
@@ -43,8 +43,7 @@ demo
 
 ### 2.生成导航菜单
 将您的文档和目录按规划放到`docs`目录下.
-
-执行以下命令会根据您的目录结构生成导航菜单:
+执行以下命令会根据您的目录结构生成导航菜单:
 ```
 modoc nav
 // output:
@@ -65,7 +64,7 @@ modoc serve
 
 ### 4.发布项目
 执行build命令, 在当前目录生成`site`文件夹.
-将`site`文件夹部署到任何一个`web`服务器目录中即可, 不需要任何脚本环境支持.
+将`site`文件夹部署到任何一个`web`服务器目录中即可, 不需要任何脚本环境支持.
 ```
 modoc build
 // output:
@@ -73,7 +72,7 @@ modoc build
 ```
 
 ## 配置
-编辑`config.yaml`文件, 重新build或者重启serve.
+编辑`config.yaml`文件, 重新build或者重启serve.
 ```
 # 网站名称
 site_name: modoc
