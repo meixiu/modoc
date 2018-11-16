@@ -1,5 +1,4 @@
 # Modoc
-***
 将Markdown文件目录生成html网站
 
 ## 什么是Modoc
