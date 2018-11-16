@@ -60,7 +60,7 @@ modoc serve
 // build: site/index.html
 // Start server: http://127.0.0.1:9000
 ```
-访问 http://127.0.0.1:9000 即可预览网站.
+访问 http://127.0.0.1:9000 即可预览网站.
 
 ### 4.发布项目
 执行build命令, 在当前目录生成`site`文件夹.
@@ -72,7 +72,7 @@ modoc build
 ```
 
 ## 配置
-编辑`config.yaml`文件, 重新build或者重启serve.
+编辑`config.yaml`文件, 重新build或者重启serve.
 ```
 # 网站名称
 site_name: modoc
@@ -101,7 +101,9 @@ search: true
 ## 自定义导航菜单
 Modoc会自动根据`docs`下的目录结构生成对应的导航菜单.
 如果您需要定制菜单, 可以编辑 `nav.yaml`文件.
+
 **注意**: 执行`modoc nav`命令会覆盖`nav.yaml`文件
+
 ```
 title: ""
 child:
