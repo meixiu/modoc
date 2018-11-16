@@ -1,0 +1,14 @@
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        {% if tocs.Child %}
+        {% for item in tocs.Child %}
+        <li class="nav-item main"><a href="{{item.Link}}">{{item.Title}}</a></li>
+        {% for subItem in item.Child %}
+        <li><a href="{{subItem.Link}}">{{subItem.Title}}</a></li>
+        {% endfor %}
+        {% endfor %} 
+        {% else %}
+        <li class="nav-item main"><a href="{{baseDir}}{{node.Link}}">{{node.Title}}</a></li>
+        {% endif %}
+    </ul>
+</div>

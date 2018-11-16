@@ -1,3 +1,22 @@
+<!--macro makeSubItem-->
+{% macro makeSubItem(subItem) %}
+{% if subItem.Child %}
+<li class="dropdown-submenu{% if subItem.IsActive%} active{% endif %}">
+    <a href="#">{{subItem.Title}}</a>
+    <ul class="dropdown-menu">
+        {% for subSubItem in subItem.Child %}
+        {{makeSubItem(subSubItem)}}
+        {% endfor %}
+    </ul>
+</li>
+{% else %}
+<li class="{% if subItem.IsActive%}active{% endif %}">
+    <a href="{{baseDir}}{{subItem.Link}}">{{subItem.Title}}</a>
+</li>
+{% endif %}
+{% endmacro %}
+
+
 <div class="container">
 
     <!-- Collapsed navigation -->
@@ -9,585 +28,60 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="static">{{config.SiteName}}</a>
+        <a class="navbar-brand" href="{{baseDir}}">{{config.SiteName}}</a>
     </div>
+
 
     <!-- Expanded navigation -->
     <div class="navbar-collapse collapse">
         <!-- Main navigation -->
         <ul class="nav navbar-nav">
-            {% for name, item in nav sorted %}
+            <li class="{% if index.IsActive%}active{% endif %}">
+                <a href="{{baseDir}}">{{index.Title}}</a>
+            </li>
+            {% for subItem in nav.Child %}
+            {% if subItem.Child %}
+            <li class="dropdown{% if subItem.IsActive%} active{% endif %}">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{subItem.Title}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    {% for subItem in subItem.Child%}
+                    {{ makeSubItem(subItem) }}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% else %}
+            {% if !subItem.IsIndex %}
+            <li class="{% if subItem.IsActive%}active{% endif %}">
+                <a href="{{baseDir}}{{subItem.Link}}">{{subItem.Title}}</a>
+            </li>
+            {% endif %}
 
-            <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        {% for menu in item sorted%}
-                        <li class="dropdown-submenu">
-                                <a href="#">{{menu}}</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        {% endfor %}
-                        
-    
-                    </ul>
-            </li>    
+            {% endif %}
             {% endfor %}
 
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">GtaCMS <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-
-                    <li class="dropdown-submenu">
-                        <a href="#">模板制作手册</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">管理后台-API</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="static/GtaCMS/管理后台-API/图片上传接口/">图片上传接口</a>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">广告管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/创建广告接口/">创建广告接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告信息接口/">广告信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告列表接口/">广告列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告删除接口/">广告删除接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告排序接口/">广告排序接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/更新广告接口/">更新广告接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/禁用启用广告接口/">禁用启用广告接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">推荐位管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/创建推荐位接口/">创建推荐位接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/推荐位信息接口/">推荐位信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/推荐位列表接口/">推荐位列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/更新推荐位接口/">更新推荐位接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/有效推荐位列表接口/">有效推荐位列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/禁用启用推荐位接口/">禁用启用推荐位接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">文章管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/创建文章接口/">创建文章接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/删除接口/">删除接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/启用禁用接口/">启用禁用接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/排序接口/">排序接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章信息接口/">文章信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章修改接口/">文章修改接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章列表接口/">文章列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">日志管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/日志管理/日志列表接口/">日志列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">权限列表</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/权限列表/菜单列表接口/">菜单列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/权限列表/项目列表接口/">项目列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">栏目管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/新建栏目接口/">新建栏目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/更新栏目接口/">更新栏目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/栏目信息接口/">栏目信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/获取栏目树型列表/">获取栏目树型列表</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/设定栏目开启状态/">设定栏目开启状态</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">游戏管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/修改游戏信息接口/">修改游戏信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/删除游戏接口/">删除游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/启用-禁用游戏接口/">启用-禁用游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/添加游戏接口/">添加游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/游戏列表接口/">游戏列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">网站统计</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/网站统计/网站统计接口/">网站统计接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">语言包管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/修改语料接口/">修改语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/启用禁用语料接口/">启用禁用语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/导入Excel接口/">导入Excel接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/添加语料接口/">添加语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/语言包列表/">语言包列表</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/语言包字段信息/">语言包字段信息</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">语言管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/启用-禁用语言接口/">启用-禁用语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/语言切换接口/">语言切换接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/语言列表接口/">语言列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">项目管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/SEO多语言接口/">SEO多语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/修改项目接口/">修改项目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/启用-禁用语言接口/">启用-禁用语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/添加项目接口/">添加项目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/第三方配置接口/">第三方配置接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目信息接口/">项目信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目切换接口/">项目切换接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目列表接口/">项目列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目支持语言接口/">项目支持语言接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown active">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">SuperSDK <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-
-                    <li class="dropdown-submenu">
-                        <a href="#">SDK更新文档日志</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="../../SDK更新文档日志/Android更新文档日志/">Android更新文档日志</a>
-                            </li>
-
-                            <li>
-                                <a href="../../SDK更新文档日志/iOS更新文档日志/">iOS更新文档日志</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../mastersdk-python消费脚本依赖环境/">mastersdk-python消费脚本依赖环境</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">后端服务器</a>
-                        <ul class="dropdown-menu">
-
-                            <li class="active">
-                                <a href="./">mastersdk脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../oms层脚本/">oms层脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../主查接口参数说明/">主查接口参数说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../几个透传参数的说明/">几个透传参数的说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../渠道接入流程整理/">渠道接入流程整理</a>
-                            </li>
-
-                            <li>
-                                <a href="../网页直冲接口参数说明/">网页直冲接口参数说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../解决问题之包名/">解决问题之包名</a>
-                            </li>
-
-                            <li>
-                                <a href="../订单状态说明/">订单状态说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../订单里面的金额说明/">订单里面的金额说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../转发层脚本/">转发层脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../配置参数流向说明/">配置参数流向说明</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../商品id和金额关系约定/">商品id和金额关系约定</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">客户端渠道参数及注意事项</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="../../客户端渠道参数及注意事项/Android参数/">Android参数</a>
-                            </li>
-
-                            <li>
-                                <a href="../../客户端渠道参数及注意事项/iOS参数/">iOS参数</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../打包工具使用/">打包工具使用</a>
-                    </li>
-
-                    <li>
-                        <a href="../../支付通知地址/">支付通知地址</a>
-                    </li>
-
-                    <li>
-                        <a href="../../模块接入文档/">模块接入文档</a>
-                    </li>
-
-                    <li>
-                        <a href="../../海外SDK接入指引/">海外SDK接入指引</a>
-                    </li>
-
-                    <li>
-                        <a href="../../海外游戏及渠道整理/">海外游戏及渠道整理</a>
-                    </li>
-
-                    <li>
-                        <a href="../../渠道接入文档/">渠道接入文档</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">渠道支付文档</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="../../渠道支付文档/Amazon亚马逊支付文档/">Amazon亚马逊支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/App-Store支付文档/">App-Store支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Aptoide支付文档/">Aptoide支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Cafebazaar支付文档/">Cafebazaar支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Flexion支付文档/">Flexion支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Google支付文档/">Google支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Gtaplay微端支付渠道/">Gtaplay微端支付渠道</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/One-store支付文档/">One-store支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/三星支付文档/">三星支付文档</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../游戏接入文档/">游戏接入文档</a>
-                    </li>
-
-                    <li>
-                        <a href="../../游戏货币单位/">游戏货币单位</a>
-                    </li>
-
-                    <li>
-                        <a href="../../登录验证extend参数说明/">登录验证extend参数说明</a>
-                    </li>
-
-                    <li>
-                        <a href="../../目前海外渠道存入订单中的货币单位/">目前海外渠道存入订单中的货币单位</a>
-                    </li>
-
-                    <li>
-                        <a href="../../需求申请邮件模板/">需求申请邮件模板</a>
-                    </li>
-
-                    <li>
-                        <a href="../../项目简介/">项目简介</a>
-                    </li>
-
-                    <li>
-                        <a href="../../项目说明/">项目说明</a>
-                    </li>
-                </ul>
-            </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+            {% if config.Search %}
             <li>
                 <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                     <i class="fa fa-search"></i> Search
                 </a>
             </li>
+            {% endif %}
+            {% if config.PrevNext %}
             <li>
-                <a rel="next" href="../../mastersdk-python消费脚本依赖环境/">
+                <a rel="next" href="{{baseDir}}{{node.Prev.Link}}">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </li>
             <li>
-                <a rel="prev" href="../oms层脚本/">
+                <a rel="prev" href="{{baseDir}}{{node.Next.Link}}">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </li>
+            {% endif %}
+
         </ul>
     </div>
 </div>

@@ -1,0 +1,20 @@
+body {
+    font-size: 15px;
+}
+
+body .hljs-comment,
+body .diff .hljs-header,
+body .hljs-javadoc {
+    font-style: normal;
+    color: #666;
+}
+
+@media (min-width: 1500px) {
+    body .container {
+        width: 1500px;
+    }
+}
+
+.bs-sidenav li:not(.main) {
+    padding-left: 10px;
+}

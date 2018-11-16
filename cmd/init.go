@@ -4,6 +4,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
+	"path/filepath"
+
+	"github.com/flosch/pongo2"
+	"github.com/wbsifan/modoc/helper"
+	"github.com/wbsifan/modoc/model"
 
 	"gopkg.in/yaml.v2"
 
@@ -15,7 +21,6 @@ var (
 		Use:   "init [name]",
 		Short: "Initialize the document configuration",
 		Long:  `Initialize the document configuration`,
-		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			makeConfig(args)
 		},
@@ -27,16 +32,26 @@ func init() {
 }
 
 func makeConfig(args []string) {
-	name := args[0]
-	cfg = &Config{
-		SiteName: name,
-		Author:   "YOUNAME",
-		Theme:    "default",
-		DocsDir:  "docs",
-		SiteDir:  "site",
+	var siteName = "DEMO"
+	if len(args) > 0 {
+		siteName = args[0]
+	} else {
+		cwd, err := os.Getwd()
+		if err == nil {
+			siteName = filepath.Base(cwd)
+		}
 	}
-	cbyte, _ := yaml.Marshal(cfg)
-	err := ioutil.WriteFile(configFile, cbyte, 0666)
+	configTpl, err := pongo2.FromString(model.DefaultConfig)
+	if err != nil {
+		log.Fatal(err)
+	}
+	out, err := configTpl.Execute(pongo2.Context{
+		"siteName": siteName,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = helper.WriteFile("config.yaml", out)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -48,10 +63,9 @@ func loadConfig() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	cfg = &Config{}
+	cfg = model.NewConfig()
 	err = yaml.Unmarshal(cbyte, cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(cfg)
 }

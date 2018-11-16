@@ -4,27 +4,16 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
+
+	"github.com/wbsifan/modoc/helper"
+
+	"github.com/wbsifan/modoc/asset"
+
+	"github.com/wbsifan/modoc/model"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
-)
-
-type (
-	Config struct {
-		SiteName string `json:"site_name" yaml:"site_name"`
-		Author   string `json:"author" yaml:"author"`
-		DocsDir  string `json:"docs_dir" yaml:"docs_dir"`
-		SiteDir  string `json:"site_dir" yaml:"site_dir"`
-		Theme    string `json:"theme" yaml:"theme"`
-	}
-
-	FileNode struct {
-		Title string      `json:"name" yaml:"title"`
-		Path  string      `json:"path" yaml:"path"`
-		Nodes []*FileNode `json:"nodes" yaml:"nodes"`
-	}
-
-	FileTree map[string]interface{}
 )
 
 var (
@@ -32,12 +21,13 @@ var (
 	navFile    = "nav.yaml"
 	rootCmd    = &cobra.Command{
 		Use:   "mkdoc",
-		Short: "Project documentation with Markdown",
-		Long:  `Project documentation with Markdown by GO`,
+		Short: "Generate HTML web site for MD file directory",
+		Long:  `Generate HTML web site for MD file directory`,
 	}
-	appPath string
-	cfg     *Config
-	nav     FileTree
+	home      string
+	customTpl bool
+	cfg       *model.Config
+	nav       *model.Node
 )
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -50,9 +40,47 @@ func Execute() {
 }
 
 func init() {
-	home, err := homedir.Dir()
+	h, err := homedir.Dir()
 	if err != nil {
 		log.Fatal(err)
 	}
-	appPath = home
+	// Modoc Cache path
+	home = filepath.Join(h, ".modoc")
+	// custom template
+	if helper.IsDir("template") {
+		customTpl = true
+	} else {
+		if !helper.IsDir(filepath.Join(home, "template")) {
+			fmt.Println("First run, Installing...")
+			unpackAsset()
+		}
+	}
+}
+
+// unpackAsset 解压静态资源
+func unpackAsset() {
+	dirs := []string{"template"}
+	isSuccess := true
+	for _, dir := range dirs {
+		if err := asset.RestoreAssets(home, dir); err != nil {
+			isSuccess = false
+			fmt.Println(err)
+			break
+		}
+	}
+	if !isSuccess {
+		for _, dir := range dirs {
+			os.RemoveAll(filepath.Join(home, dir))
+		}
+		log.Fatal("unzip asset failure")
+	}
+}
+
+func getAsset(path string) string {
+	if customTpl {
+		return filepath.Join("template", path)
+	} else {
+		return filepath.Join(home, "template", path)
+	}
+
 }

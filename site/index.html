@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="http://127.0.0.1:8000/SuperSDK/后端服务器/mastersdk脚本/">
+    <title>首页 - modoc</title>
+    
     <link rel="shortcut icon" href="static/img/favicon.ico">
-    <title>mastersdk脚本 - </title>
+    
     <link href="static/css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="static/css/font-awesome.min.css" rel="stylesheet">
     <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/extra.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,7 +30,11 @@
 <body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+        <!--macro makeSubItem-->
+
+
+
+<div class="container">
 
     <!-- Collapsed navigation -->
     <div class="navbar-header">
@@ -38,1173 +45,81 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="static">demo</a>
+        <a class="navbar-brand" href="">modoc</a>
     </div>
+
 
     <!-- Expanded navigation -->
     <div class="navbar-collapse collapse">
         <!-- Main navigation -->
         <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="">首页</a>
+            </li>
             
-
-            <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">模板制作手册 <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#"><map[interface {}]interface {} Value></a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        
-    
-                    </ul>
-            </li>    
             
-
             <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理后台-API <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">项目管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">图片上传接口</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">广告管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">推荐位管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">权限列表</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">游戏管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">语言包管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">文章管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">日志管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">栏目管理</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        <li class="dropdown-submenu">
-                                <a href="#">网站统计</a>
-                                <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                                    </li>
-        
-                                    <li>
-                                        <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        
-                        
-    
-                    </ul>
-            </li>    
-            
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">GtaCMS <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    
+                    
 
-                    <li class="dropdown-submenu">
-                        <a href="#">模板制作手册</a>
-                        <ul class="dropdown-menu">
+<li class="">
+    <a href="about/start">start</a>
+</li>
 
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/1.模板引擎语法/">1.模板引擎语法</a>
-                            </li>
 
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/2.模板标签/">2.模板标签</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/3.过滤器/">3.过滤器</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/4.函数方法/">4.函数方法</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/5.变量字典/">5.变量字典</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/6.模板制作流程/">6.模板制作流程</a>
-                            </li>
-
-                            <li>
-                                <a href="static/GtaCMS/模板制作手册/7.Ajax分页数据接口/">7.Ajax分页数据接口</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">管理后台-API</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="static/GtaCMS/管理后台-API/图片上传接口/">图片上传接口</a>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">广告管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/创建广告接口/">创建广告接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告信息接口/">广告信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告列表接口/">广告列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告删除接口/">广告删除接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/广告排序接口/">广告排序接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/更新广告接口/">更新广告接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/广告管理/禁用启用广告接口/">禁用启用广告接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">推荐位管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/创建推荐位接口/">创建推荐位接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/推荐位信息接口/">推荐位信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/推荐位列表接口/">推荐位列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/更新推荐位接口/">更新推荐位接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/有效推荐位列表接口/">有效推荐位列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/推荐位管理/禁用启用推荐位接口/">禁用启用推荐位接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">文章管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/创建文章接口/">创建文章接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/删除接口/">删除接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/启用禁用接口/">启用禁用接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/排序接口/">排序接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章信息接口/">文章信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章修改接口/">文章修改接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/文章管理/文章列表接口/">文章列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">日志管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/日志管理/日志列表接口/">日志列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">权限列表</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/权限列表/菜单列表接口/">菜单列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/权限列表/项目列表接口/">项目列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">栏目管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/新建栏目接口/">新建栏目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/更新栏目接口/">更新栏目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/栏目信息接口/">栏目信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/获取栏目树型列表/">获取栏目树型列表</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/栏目管理/设定栏目开启状态/">设定栏目开启状态</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">游戏管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/修改游戏信息接口/">修改游戏信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/删除游戏接口/">删除游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/启用-禁用游戏接口/">启用-禁用游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/添加游戏接口/">添加游戏接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/游戏管理/游戏列表接口/">游戏列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">网站统计</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/网站统计/网站统计接口/">网站统计接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">语言包管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/修改语料接口/">修改语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/启用禁用语料接口/">启用禁用语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/导入Excel接口/">导入Excel接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/添加语料接口/">添加语料接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/语言包列表/">语言包列表</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言包管理/语言包字段信息/">语言包字段信息</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">语言管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/启用-禁用语言接口/">启用-禁用语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/语言切换接口/">语言切换接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/语言管理/语言列表接口/">语言列表接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">项目管理</a>
-                                <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/SEO多语言接口/">SEO多语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/修改项目接口/">修改项目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/启用-禁用语言接口/">启用-禁用语言接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/添加项目接口/">添加项目接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/第三方配置接口/">第三方配置接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目信息接口/">项目信息接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目切换接口/">项目切换接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目列表接口/">项目列表接口</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="static/GtaCMS/管理后台-API/项目管理/项目支持语言接口/">项目支持语言接口</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    
                 </ul>
             </li>
-            <li class="dropdown active">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">SuperSDK <b class="caret"></b></a>
+            
+            
+            
+            
+
+            
+            
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">快速开始 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    
+                    
 
-                    <li class="dropdown-submenu">
-                        <a href="#">SDK更新文档日志</a>
-                        <ul class="dropdown-menu">
+<li class="">
+    <a href="kuai-su-kai-shi/kai-shi">开始</a>
+</li>
 
-                            <li>
-                                <a href="../../SDK更新文档日志/Android更新文档日志/">Android更新文档日志</a>
-                            </li>
 
-                            <li>
-                                <a href="../../SDK更新文档日志/iOS更新文档日志/">iOS更新文档日志</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../mastersdk-python消费脚本依赖环境/">mastersdk-python消费脚本依赖环境</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">后端服务器</a>
-                        <ul class="dropdown-menu">
-
-                            <li class="active">
-                                <a href="./">mastersdk脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../oms层脚本/">oms层脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../主查接口参数说明/">主查接口参数说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../几个透传参数的说明/">几个透传参数的说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../渠道接入流程整理/">渠道接入流程整理</a>
-                            </li>
-
-                            <li>
-                                <a href="../网页直冲接口参数说明/">网页直冲接口参数说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../解决问题之包名/">解决问题之包名</a>
-                            </li>
-
-                            <li>
-                                <a href="../订单状态说明/">订单状态说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../订单里面的金额说明/">订单里面的金额说明</a>
-                            </li>
-
-                            <li>
-                                <a href="../转发层脚本/">转发层脚本</a>
-                            </li>
-
-                            <li>
-                                <a href="../配置参数流向说明/">配置参数流向说明</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../商品id和金额关系约定/">商品id和金额关系约定</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">客户端渠道参数及注意事项</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="../../客户端渠道参数及注意事项/Android参数/">Android参数</a>
-                            </li>
-
-                            <li>
-                                <a href="../../客户端渠道参数及注意事项/iOS参数/">iOS参数</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../打包工具使用/">打包工具使用</a>
-                    </li>
-
-                    <li>
-                        <a href="../../支付通知地址/">支付通知地址</a>
-                    </li>
-
-                    <li>
-                        <a href="../../模块接入文档/">模块接入文档</a>
-                    </li>
-
-                    <li>
-                        <a href="../../海外SDK接入指引/">海外SDK接入指引</a>
-                    </li>
-
-                    <li>
-                        <a href="../../海外游戏及渠道整理/">海外游戏及渠道整理</a>
-                    </li>
-
-                    <li>
-                        <a href="../../渠道接入文档/">渠道接入文档</a>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                        <a href="#">渠道支付文档</a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="../../渠道支付文档/Amazon亚马逊支付文档/">Amazon亚马逊支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/App-Store支付文档/">App-Store支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Aptoide支付文档/">Aptoide支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Cafebazaar支付文档/">Cafebazaar支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Flexion支付文档/">Flexion支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Google支付文档/">Google支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/Gtaplay微端支付渠道/">Gtaplay微端支付渠道</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/One-store支付文档/">One-store支付文档</a>
-                            </li>
-
-                            <li>
-                                <a href="../../渠道支付文档/三星支付文档/">三星支付文档</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="../../游戏接入文档/">游戏接入文档</a>
-                    </li>
-
-                    <li>
-                        <a href="../../游戏货币单位/">游戏货币单位</a>
-                    </li>
-
-                    <li>
-                        <a href="../../登录验证extend参数说明/">登录验证extend参数说明</a>
-                    </li>
-
-                    <li>
-                        <a href="../../目前海外渠道存入订单中的货币单位/">目前海外渠道存入订单中的货币单位</a>
-                    </li>
-
-                    <li>
-                        <a href="../../需求申请邮件模板/">需求申请邮件模板</a>
-                    </li>
-
-                    <li>
-                        <a href="../../项目简介/">项目简介</a>
-                    </li>
-
-                    <li>
-                        <a href="../../项目说明/">项目说明</a>
-                    </li>
+                    
                 </ul>
             </li>
+            
+            
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+            
             <li>
                 <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                     <i class="fa fa-search"></i> Search
                 </a>
             </li>
+            
+            
             <li>
-                <a rel="next" href="../../mastersdk-python消费脚本依赖环境/">
+                <a rel="next" href="about/start">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </li>
             <li>
-                <a rel="prev" href="../oms层脚本/">
+                <a rel="prev" href="kuai-su-kai-shi/kai-shi">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </li>
+            
+
         </ul>
     </div>
 </div>
@@ -1214,73 +129,171 @@
         
 <div class="col-md-3">
     <div class="bs-sidebar hidden-print affix well" role="complementary">
-        <ul class="nav bs-sidenav">
-            <li class="main active"><a href="#_1">通知</a></li>
-        </ul>
-    </div>
+    <ul class="nav bs-sidenav">
+        
+        
+        <li class="nav-item main"><a href="#toc_0">Modoc</a></li>
+        
+        <li><a href="#toc_1">什么是Modoc</a></li>
+        
+        <li><a href="#toc_2">安装</a></li>
+        
+        <li><a href="#toc_3">开始</a></li>
+        
+        <li><a href="#toc_8">配置</a></li>
+        
+        <li><a href="#toc_9">自定义导航菜单</a></li>
+        
+         
+        
+    </ul>
+</div>
 </div>
 <div class="col-md-9" role="main">
+    <html><head></head><body>
 
-    <h3 id="_1">通知<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-    <ul>
-        <li>服务器IP</li>
-        <li>
-            <p>10.16.40.75 </p>
-        </li>
-        <li>
-            <p>类别 </p>
-        </li>
-        <li>
-            <p>supervisor </p>
-        </li>
-        <li>
-            <p>配置路径</p>
-        </li>
-        <li>/etc/supervisord.d/notify.ini</li>
-        <li>配置详情</li>
-    </ul>
-    <p>```bash
-        [program:ordernotify]
-        command=/app/bin/php /data/html/mastersdk.gtarcade.com/protected/yiic.php notify
-        stdout_logfile=/data/html/mastersdk.gtarcade.com/supervisor_notify.log
-        stderr_logfile=/data/html/mastersdk.gtarcade.com/supervisor_notify__err.log
-        autostart=true
-        autorestart=true
-        numprocs=6
-        process_name=%(program_name)s_%(process_num)02d</p>
-    <pre class="codehilite"><code>### 主查
+<h1 id="toc_0">Modoc</h1>
 
-- 服务器IP
-- 10.16.40.75
+<hr/>
 
-- 类别 
-- supervisor 
+<p>将Markdown文件目录生成html网站</p>
 
-- 配置路径
-- /etc/supervisord.d/transaction.ini
-- 配置详情
+<h2 id="toc_1">什么是Modoc</h2>
 
-```bash
-[program:ordertransaction]
-command=/app/bin/php /data/html/mastersdk.gtarcade.com/protected/yiic.php transaction
-stdout_logfile=/data/html/mastersdk.gtarcade.com/supervisor_transaction.log
-stderr_logfile=/data/html/mastersdk.gtarcade.com/supervisor_transaction__err.log
-autostart=true
-autorestart=true
-numprocs=6
-process_name=%(program_name)s_%(process_num)02d</code></pre>
+<p>Modoc 是一个用于创建项目文档的 HTML 静态站点生成工具. 文档源码使用 Markdown 来撰写, 用 YAML 文件作为配置文档.</p>
+
+<h2 id="toc_2">安装</h2>
+
+<ul>
+<li>从源码安装</li>
+<li>直接下载可执行程序
+
+<ul>
+<li>Windows平台: <a href="modoc-win.exe">modoc-win.exe</a></li>
+<li>Mac平台: <a href="modoc-mac">modoc-mac</a></li>
+<li>Linux平台: <a href="modoc-linux">modoc-linux</a></li>
+</ul></li>
+</ul>
+
+<h2 id="toc_3">开始</h2>
+
+<h3 id="toc_4">1.初始化项目</h3>
+
+<p>创建一个目录, 有如下结构</p>
+
+<pre><code>demo
+└── docs
+    └── index.md
+</code></pre>
+
+<ul>
+<li><code>demo</code> 为项目根目录</li>
+<li><code>docs</code> 为存放文档的目录</li>
+</ul>
+
+<p>在 <code>demo</code> 目录下, 执行初始化命令</p>
+
+<pre><code>modoc init
+// output: 
+// Initialization is complete, you can manually modify config file: config.yaml
+// win下执行: modoc-win.exe init
+</code></pre>
+
+<p>自动生成<code>config.yaml</code>配置文件, 可以手动修改该文件以适配不同的需求</p>
+
+<pre><code>demo
+├── config.yaml
+└── docs
+    └── index.md
+</code></pre>
+
+<h3 id="toc_5">2.生成导航菜单</h3>
+
+<p>将您的文档和目录按规划放到<code>docs</code>目录下.</p>
+
+<p>执行以下命令会根据您的目录结构生成导航菜单:</p>
+
+<pre><code>modoc nav
+// output:
+// find: docs/index.md
+// Generate the navigation configuration file: nav.yaml
+</code></pre>
+
+<h3 id="toc_6">3.开启服务</h3>
+
+<p>Modoc 包含了一个内建的服务器以预览当前文档.
+执行以下命令以启动内建服务器:</p>
+
+<pre><code>modoc serve
+// output:
+// build: site/index.html
+// Start server: http://127.0.0.1:9000
+</code></pre>
+
+<p>访问 <a href="http://127.0.0.1:9000">http://127.0.0.1:9000</a> 即可预览网站.</p>
+
+<h3 id="toc_7">4.发布项目</h3>
+
+<p>执行build命令, 在当前目录生成<code>site</code>文件夹.
+将<code>site</code>文件夹部署到任何一个<code>web</code>服务器目录中即可, 不需要任何脚本环境支持.</p>
+
+<pre><code>modoc build
+// output:
+// build: site/index.html
+</code></pre>
+
+<h2 id="toc_8">配置</h2>
+
+<p>编辑<code>config.yaml</code>文件, 重新build或者重启serve.</p>
+
+<pre><code># 网站名称
+site_name: modoc
+# 网站端口
+site_addr: &#34;:9000&#34;
+# 网站图标
+favicon: 
+# 网站作者
+author: YOUNAME
+# 源文档目录
+docs_dir: docs
+# 生成的HTML网站目录
+site_dir: site
+# 模板主题
+theme: default
+# 首页名称
+index_title: 首页
+# 是否将链接里的汉字转成拼音
+link_pinyin: true
+# 是否启用上一页下一页
+prev_next: true
+# 是否启用搜索
+search: true
+</code></pre>
+
+<h2 id="toc_9">自定义导航菜单</h2>
+
+<p>Modoc会自动根据<code>docs</code>下的目录结构生成对应的导航菜单.
+如果您需要定制菜单, 可以编辑 <code>nav.yaml</code>文件.
+<strong>注意</strong>: 执行<code>modoc nav</code>命令会覆盖<code>nav.yaml</code>文件</p>
+
+<pre><code>title: &#34;&#34;
+child:
+- title: 把首页的名子改了HOME
+  path: index.md
+</code></pre>
+</body></html>
 </div>
 
     </div>
 
     <footer class="col-md-12">
         <hr>
-        <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        <p>Documentation built with <a href="#">Modoc</a>.</p>
     </footer>
     <script>
-        var base_url = "static",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
-        </script>
+        var base_url = "";
+        var shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+    </script>
     <script src="static/js/base.js" defer></script>
     <script src="static/search/main.js" defer></script>
 

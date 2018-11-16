@@ -6,8 +6,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
+
+	"github.com/wbsifan/modoc/helper"
+
+	"github.com/wbsifan/modoc/model"
 
 	"gopkg.in/yaml.v2"
 
@@ -31,14 +34,25 @@ func init() {
 	rootCmd.AddCommand(navCmd)
 }
 
+func loadNav() {
+	cbyte, err := ioutil.ReadFile(navFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	nav = model.NewNode()
+	err = yaml.Unmarshal(cbyte, &nav)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 func makeNav() {
 	info, err := os.Lstat(cfg.DocsDir)
 	if err != nil {
 		log.Fatal(err)
 	}
-	node := make(FileTree, 0)
+	node := model.NewNode()
 	walkFile(cfg.DocsDir, info, node)
-	//tree, _ := json.MarshalIndent(node, " ", "  ")
 	tree, _ := yaml.Marshal(node)
 	err = ioutil.WriteFile(navFile, tree, 0666)
 	if err != nil {
@@ -47,22 +61,9 @@ func makeNav() {
 	fmt.Println("Generate the navigation configuration file:", navFile)
 }
 
-func loadNav() {
-	cbyte, err := ioutil.ReadFile(navFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-	nav = make(FileTree, 0)
-	err = yaml.Unmarshal(cbyte, &nav)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("%#v", nav)
-}
-
-func walkFile(path string, info os.FileInfo, node FileTree) {
+func walkFile(path string, info os.FileInfo, node *model.Node) {
 	// 列出当前目录下的所有目录、文件
-	files := listFiles(path)
+	files := helper.ListFiles(path)
 	// 遍历这些文件
 	for _, filename := range files {
 		// 以 `_` 开头不加载
@@ -74,35 +75,28 @@ func walkFile(path string, info os.FileInfo, node FileTree) {
 		isDir := finfo.IsDir()
 		// 如果遍历的当前文件是个目录，则进入该目录进行递归
 		if isDir {
-			child := make(FileTree, 0)
-			node[filename] = child
+			child := &model.Node{
+				Title: filename,
+			}
 			walkFile(fpath, finfo, child)
+			node.Child = append(node.Child, child)
 		} else {
 			ext := filepath.Ext(fpath)
 			name := strings.TrimSuffix(filename, ext)
 			if ext != ".md" {
 				continue
 			}
+			if fpath == filepath.Join(cfg.DocsDir, "index.md") {
+				name = cfg.IndexTitle
+			}
 			link, _ := filepath.Rel(cfg.DocsDir, fpath)
-			node[name] = link
+			link = strings.Replace(link, "\\", "/", -1)
+			child := &model.Node{
+				Title: name,
+				Path:  link,
+			}
+			node.Child = append(node.Child, child)
 			fmt.Println("find:", fpath)
 		}
 	}
-	return
-}
-
-func listFiles(dirname string) []string {
-	f, _ := os.Open(dirname)
-	names, _ := f.Readdirnames(-1)
-	f.Close()
-	sort.Strings(names)
-	return names
-}
-
-func isFile(path string) bool {
-	_, err := os.Stat(path)
-	if err != nil && os.IsNotExist(err) {
-		return false
-	}
-	return true
 }

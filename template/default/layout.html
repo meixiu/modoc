@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="http://127.0.0.1:8000/SuperSDK/后端服务器/mastersdk脚本/">
-    <link rel="shortcut icon" href="static/img/favicon.ico">
-    <title>mastersdk脚本 - {{cfg.SiteName}}</title>
-    <link href="static/css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="static/css/font-awesome.min.css" rel="stylesheet">
-    <link href="static/css/base.css" rel="stylesheet">
+    <title>{{node.Title}} - {{config.SiteName}}</title>
+    {% if config.Favicon %}
+    <link rel="shortcut icon" href="{{config.Favicon}}">
+    {% else %}
+    <link rel="shortcut icon" href="{{baseDir}}static/img/favicon.ico">
+    {% endif %}
+    <link href="{{baseDir}}static/css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="{{baseDir}}static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{baseDir}}static/css/base.css" rel="stylesheet">
+    <link href="{{baseDir}}static/css/extra.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="static/js/jquery-1.10.2.min.js" defer></script>
-    <script src="static/js/bootstrap-3.0.3.min.js" defer></script>
+    <script src="{{baseDir}}static/js/jquery-1.10.2.min.js" defer></script>
+    <script src="{{baseDir}}static/js/bootstrap-3.0.3.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -32,20 +37,20 @@
 
     <div class="container">
         {% block body %}
-            BODY
+        BODY
         {% endblock body %}
     </div>
 
     <footer class="col-md-12">
         <hr>
-        <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        <p>Documentation built with <a href="#">Modoc</a>.</p>
     </footer>
     <script>
-        var base_url = "static",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
-        </script>
-    <script src="static/js/base.js" defer></script>
-    <script src="static/search/main.js" defer></script>
+        var base_url = "{{baseDir}}";
+        var shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+    </script>
+    <script src="{{baseDir}}static/js/base.js" defer></script>
+    <script src="{{baseDir}}static/search/main.js" defer></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
