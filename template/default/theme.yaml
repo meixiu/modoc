@@ -1,0 +1,55 @@
+extend:
+skin:
+  default:
+    base_css: css/base.css
+    custom_css: css/bootstrap-custom.min.css
+    hljs_css: agate
+  amelia:
+    base_css: skin/amelia/css/base.css
+    custom_css: skin/amelia/css/bootstrap-custom.min.css
+    hljs_css: agate
+  cerulean:
+    base_css: skin/cerulean/css/base.css
+    custom_css: skin/cerulean/css/bootstrap-custom.min.css
+    hljs_css: color-brewer
+  cosmo:
+    base_css: skin/cosmo/css/base.css
+    custom_css: skin/cosmo/css/bootstrap-custom.min.css
+    hljs_css: purebasic
+  cyborg:
+    base_css: skin/cyborg/css/base.css
+    custom_css: skin/cyborg/css/bootstrap-custom.min.css
+    hljs_css: darcula
+  flatly:
+    base_css: skin/flatly/css/base.css
+    custom_css: skin/flatly/css/bootstrap-custom.min.css
+    hljs_css: docco
+  journal:
+    base_css: skin/journal/css/base.css
+    custom_css: skin/journal/css/bootstrap-custom.min.css
+    hljs_css: atelier-forest-light
+  readable:
+    base_css: skin/readable/css/base.css
+    custom_css: skin/readable/css/bootstrap-custom.min.css
+    hljs_css: mono-blue
+  simplex:
+    base_css: skin/simplex/css/base.css
+    custom_css: skin/simplex/css/bootstrap-custom.min.css
+    hljs_css: atelier-forest-light
+  slate:
+    base_css: skin/slate/css/base.css
+    custom_css: skin/slate/css/bootstrap-custom.min.css 
+    hljs_css: darcula
+  spacelab:
+    base_css: skin/spacelab/css/base.css
+    custom_css: skin/spacelab/css/bootstrap-custom.min.css
+    hljs_css: color-brewer
+  united:
+    base_css: skin/united/css/base.css
+    custom_css: skin/united/css/bootstrap-custom.min.css
+    hljs_css: github
+  yeti:
+    base_css: skin/yeti/css/base.css
+    custom_css: skin/yeti/css/bootstrap-custom.min.css
+    hljs_css: color-brewer
+   

@@ -9,6 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"gopkg.in/yaml.v2"
+
 	"github.com/wbsifan/modoc/helper"
 
 	"github.com/wbsifan/modoc/model"
@@ -32,6 +34,8 @@ var (
 	bodyTpl  *pongo2.Template
 	search   *model.Search
 	index    *model.Node
+	theme    *model.Theme
+	skin     *model.Skin
 	pinyin   = make(map[string]int)
 	nodeList = make([]*model.Node, 0)
 	buildCmd = &cobra.Command{
@@ -53,16 +57,19 @@ func runBuild() {
 	loadConfig()
 	loadNav()
 	loadTpl()
+	initTheme()
 	initSearch()
 	initNode(nav)
 	makeNode()
 	makeStatic()
-	makeSearch()
+	if cfg.Search {
+		makeSearch()
+	}
 }
 
 func loadTpl() {
 	var err error
-	bodyTplFile := getAsset(filepath.Join(cfg.Theme, "body.html"))
+	bodyTplFile := getTheme("body.html")
 	bodyTpl, err = pongo2.FromFile(bodyTplFile)
 	if err != nil {
 		log.Fatal(err)
@@ -79,6 +86,25 @@ func initSearch() {
 	}
 }
 
+func initTheme() {
+	theme = model.NewTheme()
+	f := getTheme("theme.yaml")
+	cbyte, err := ioutil.ReadFile(f)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = yaml.Unmarshal(cbyte, theme)
+	if err != nil {
+		log.Fatal(err)
+	}
+	s, has := theme.Skin[cfg.Skin]
+	if !has {
+		log.Fatal("No skin in `theme.yaml`:", cfg.Skin)
+	}
+	skin = s
+	helper.Dump(theme)
+}
+
 func makeSearch() {
 	cbyte, _ := json.Marshal(search)
 	dstPath := filepath.Join(cfg.SiteDir, "static/search/search_index.json")
@@ -89,7 +115,7 @@ func makeSearch() {
 }
 
 func makeStatic() {
-	srcPath := getAsset(filepath.Join(cfg.Theme, "static"))
+	srcPath := getTheme("static")
 	dstPath := filepath.Join(cfg.SiteDir, "static")
 	fmt.Println("copy:", srcPath, "==>", dstPath)
 	err := helper.CopyDir(dstPath, srcPath)
@@ -149,22 +175,13 @@ func makeNode() {
 		makeBody(node)
 		node.SetActive(false)
 	}
-	// if node.IsFile {
-	// 	node.SetActive(true)
-	// 	makeBody(node)
-	// 	node.SetActive(false)
-	// } else {
-	// 	for _, node := range node.Child {
-	// 		makeNode(node)
-	// 	}
-	// }
 }
 
 func makeBody(node *model.Node) {
 	srcPath := filepath.Join(cfg.DocsDir, node.Path)
-	dstPath := filepath.Join(cfg.SiteDir, "index.html")
-	if node.Path != "index.md" {
-		dstPath = filepath.Join(cfg.SiteDir, node.Link, "index.html")
+	dstPath := filepath.Join(cfg.SiteDir, node.Link, "index.html")
+	if node.IsIndex {
+		dstPath = filepath.Join(cfg.SiteDir, "index.html")
 	}
 	output := parseMd(srcPath)
 	html, text, tocs := parseToc(output)
@@ -182,6 +199,8 @@ func makeBody(node *model.Node) {
 		"content": html,
 		"node":    node,
 		"index":   index,
+		"theme":   theme,
+		"skin":    skin,
 		"baseDir": node.BaseDir,
 	})
 	if err != nil {

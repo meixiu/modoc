@@ -79,7 +79,7 @@ modoc build
 # 网站名称
 site_name: modoc
 # 网站端口
-site_addr: ":9000"
+dev_addr: ":9000"
 # 网站图标
 favicon: 
 # 网站作者
@@ -88,10 +88,14 @@ author: YOUNAME
 docs_dir: docs
 # 生成的HTML网站目录
 site_dir: site
-# 模板主题
-theme: default
 # 首页名称
 index_title: 首页
+# 模板主题
+theme: default
+# 默认皮肤
+skin: default
+# 是否显示切换皮肤功能
+change_skin: true
 # 是否将链接里的汉字转成拼音
 link_pinyin: true
 # 是否启用上一页下一页

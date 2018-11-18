@@ -25,7 +25,7 @@ var (
 		Long:  `Generate HTML web site for MD file directory`,
 	}
 	home      string
-	customTpl bool
+	themePath string
 	cfg       *model.Config
 	nav       *model.Node
 )
@@ -48,9 +48,10 @@ func init() {
 	home = filepath.Join(h, ".modoc")
 	// custom template
 	if helper.IsDir("template") {
-		customTpl = true
+		themePath = "template"
 	} else {
-		if !helper.IsDir(filepath.Join(home, "template")) {
+		themePath = filepath.Join(home, "template")
+		if !helper.IsDir(themePath) {
 			fmt.Println("First run, Installing...")
 			unpackAsset()
 		}
@@ -76,11 +77,10 @@ func unpackAsset() {
 	}
 }
 
-func getAsset(path string) string {
-	if customTpl {
-		return filepath.Join("template", path)
-	} else {
-		return filepath.Join(home, "template", path)
-	}
-
+func getTheme(path string) string {
+	p := filepath.Join(themePath, cfg.Theme, path)
+	// if !helper.IsFile(p) {
+	// 	p = filepath.Join(themePath, "default", path)
+	// }
+	return p
 }

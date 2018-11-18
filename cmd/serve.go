@@ -26,8 +26,8 @@ func init() {
 }
 
 func runServe() {
-	fmt.Println("Start server:", "http://127.0.0.1"+cfg.SiteAddr)
-	err := http.ListenAndServe(cfg.SiteAddr, http.FileServer(http.Dir(cfg.SiteDir)))
+	fmt.Println("Start server:", "http://127.0.0.1"+cfg.DevAddr)
+	err := http.ListenAndServe(cfg.DevAddr, http.FileServer(http.Dir(cfg.SiteDir)))
 	if err != nil {
 		log.Fatal("ListenAndServe fail:", err)
 	}

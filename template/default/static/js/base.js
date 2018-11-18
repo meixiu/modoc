@@ -12,8 +12,34 @@ function getSearchTerm()
     }
 }
 
-$(document).ready(function() {
+function changeSkin(tarSkin) 
+{
+    var baseCss = $("#base_css").attr("href").replace(
+        skinList[curSkin]["base_css"],
+        skinList[tarSkin]["base_css"]
+    );
+    $("#base_css").attr("href", baseCss);
+    var customCss = $("#custom_css").attr("href").replace(
+        skinList[curSkin]["custom_css"],
+        skinList[tarSkin]["custom_css"]
+    );
+    console.log($("#custom_css").attr("href"), skinList[curSkin]["custom_css"], skinList[tarSkin]["custom_css"]);
+    $("#custom_css").attr("href", customCss);
+    var hljsCss = $("#hljs_css").attr("href").replace(
+        skinList[curSkin]["hljs_css"],
+        skinList[tarSkin]["hljs_css"]
+    );
+    $("#hljs_css").attr("href", hljsCss);
+    curSkin = tarSkin;
+    $.cookie("curSkin", curSkin, {path: '/'});
+    $("#skin_" + curSkin).addClass("active").siblings().removeClass("active");
+} 
 
+$(document).ready(function() {
+    var saveSkin = $.cookie("curSkin")
+    if (saveSkin) {
+        changeSkin(saveSkin);
+    }
     var search_term = getSearchTerm(),
         $search_modal = $('#mkdocs_search_modal'),
         $keyboard_modal = $('#mkdocs_keyboard_modal');

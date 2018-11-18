@@ -36,9 +36,11 @@
     <div class="navbar-collapse collapse">
         <!-- Main navigation -->
         <ul class="nav navbar-nav">
+            <!-- INDEX -->
             <li class="{% if index.IsActive%}active{% endif %}">
                 <a href="{{baseDir}}">{{index.Title}}</a>
             </li>
+            <!-- FOR NAV -->
             {% for subItem in nav.Child %}
             {% if subItem.Child %}
             <li class="dropdown{% if subItem.IsActive%} active{% endif %}">
@@ -55,10 +57,21 @@
                 <a href="{{baseDir}}{{subItem.Link}}">{{subItem.Title}}</a>
             </li>
             {% endif %}
-
             {% endif %}
             {% endfor %}
-
+            <!-- CHANGE SKIN -->
+            {% if config.ChangeSkin %}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Skin<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    {% for key, item in theme.Skin sorted %}
+                    <li class="{%if config.Skin == key%}active{%endif%}" id="skin_{{key}}">
+                        <a href="javascript:changeSkin('{{key}}');">{{key}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endif %}
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
