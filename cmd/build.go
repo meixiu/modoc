@@ -102,7 +102,6 @@ func initTheme() {
 		log.Fatal("No skin in `theme.yaml`:", cfg.Skin)
 	}
 	skin = s
-	helper.Dump(theme)
 }
 
 func makeSearch() {

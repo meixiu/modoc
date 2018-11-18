@@ -5,6 +5,8 @@
 
 Modoc 是一个用于创建项目文档的 HTML 静态站点生成工具. 文档源码使用 Markdown 来撰写, 用 YAML 文件作为配置文档.
 
+预览: http://modoc.tool.style
+
 ## 安装
 
  - 从源码安装
