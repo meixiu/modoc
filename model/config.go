@@ -4,6 +4,7 @@ type (
 	Config struct {
 		SiteName   string `json:"site_name" yaml:"site_name"`
 		DevAddr    string `json:"dev_addr" yaml:"dev_addr"`
+		RepoUrl    string `json:"repo_url" yaml:"repo_url"`
 		Favicon    string `json:"favicon" yaml:"favicon"`
 		Author     string `json:"author" yaml:"author"`
 		DocsDir    string `json:"docs_dir" yaml:"docs_dir"`
@@ -22,6 +23,8 @@ var DefaultConfig = `# 网站名称
 site_name: {{siteName}}
 # 网站端口
 dev_addr: ":9000"
+# git版本库地址
+repo_url:
 # 网站图标
 favicon: 
 # 网站作者

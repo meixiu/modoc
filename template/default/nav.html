@@ -75,6 +75,7 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+            <!-- SEARCH -->
             {% if config.Search %}
             <li>
                 <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
@@ -82,6 +83,7 @@
                 </a>
             </li>
             {% endif %}
+            <!-- prev next -->
             {% if config.PrevNext %}
             <li>
                 <a rel="next" href="{{baseDir}}{{node.Prev.Link}}">
@@ -92,6 +94,11 @@
                 <a rel="prev" href="{{baseDir}}{{node.Next.Link}}">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
+            </li>
+            {% endif %}
+            {% if config.RepoUrl %}
+            <li>
+                <a href="{{config.RepoUrl}}"><i class="fa fa-github"></i> GitHub</a>
             </li>
             {% endif %}
 
