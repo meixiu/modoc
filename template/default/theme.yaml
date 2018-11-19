@@ -3,7 +3,7 @@ skin:
   default:
     base_css: css/base.css
     custom_css: css/bootstrap-custom.min.css
-    hljs_css: agate
+    hljs_css: github
   amelia:
     base_css: skin/amelia/css/base.css
     custom_css: skin/amelia/css/bootstrap-custom.min.css
