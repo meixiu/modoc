@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/wbsifan/modoc/asset"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -69,8 +70,8 @@ func runBuild() {
 
 func loadTpl() {
 	var err error
-	bodyTplFile := getTheme("body.html")
-	bodyTpl, err = pongo2.FromFile(bodyTplFile)
+	bodyTplFile := filepath.Join(cfg.Theme, "body.html")
+	bodyTpl, err = asset.Tpl.FromFile(bodyTplFile)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -88,8 +89,8 @@ func initSearch() {
 
 func initTheme() {
 	theme = model.NewTheme()
-	f := getTheme("theme.yaml")
-	cbyte, err := ioutil.ReadFile(f)
+	f := filepath.Join(cfg.Theme, "theme.yaml")
+	cbyte, err := asset.Box.Find(f)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -114,12 +115,20 @@ func makeSearch() {
 }
 
 func makeStatic() {
-	srcPath := getTheme("static")
-	dstPath := filepath.Join(cfg.SiteDir, "static")
-	fmt.Println("copy:", srcPath, "==>", dstPath)
-	err := helper.CopyDir(dstPath, srcPath)
+	srcPath := filepath.Join(cfg.Theme, "static")
+	fileList, err := asset.FileList(srcPath)
 	if err != nil {
 		log.Fatal(err)
+	}
+	fmt.Println("build: make static")
+	for _, path := range fileList {
+		file, _ := filepath.Rel(srcPath, path)
+		dst := filepath.Join(cfg.SiteDir, "static", file)
+		str, err := asset.Box.FindString(path) 
+		if err != nil {
+			log.Fatal(err)
+		}
+		_ = helper.WriteFile(dst, str)
 	}
 }
 

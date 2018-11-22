@@ -6,10 +6,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/wbsifan/modoc/helper"
-
-	"github.com/wbsifan/modoc/asset"
-
 	"github.com/wbsifan/modoc/model"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -46,41 +42,4 @@ func init() {
 	}
 	// Modoc Cache path
 	home = filepath.Join(h, ".modoc")
-	// custom template
-	if helper.IsDir("template") {
-		themePath = "template"
-	} else {
-		themePath = filepath.Join(home, "template")
-		if !helper.IsDir(themePath) {
-			fmt.Println("First run, Installing...")
-			unpackAsset()
-		}
-	}
-}
-
-// unpackAsset 解压静态资源
-func unpackAsset() {
-	dirs := []string{"template"}
-	isSuccess := true
-	for _, dir := range dirs {
-		if err := asset.RestoreAssets(home, dir); err != nil {
-			isSuccess = false
-			fmt.Println(err)
-			break
-		}
-	}
-	if !isSuccess {
-		for _, dir := range dirs {
-			os.RemoveAll(filepath.Join(home, dir))
-		}
-		log.Fatal("unzip asset failure")
-	}
-}
-
-func getTheme(path string) string {
-	p := filepath.Join(themePath, cfg.Theme, path)
-	// if !helper.IsFile(p) {
-	// 	p = filepath.Join(themePath, "default", path)
-	// }
-	return p
 }

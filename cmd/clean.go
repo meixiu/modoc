@@ -25,13 +25,12 @@ func init() {
 
 func runClean() {
 	loadConfig()
-	dirs := []string{cfg.SiteDir, home}
+	dirs := []string{cfg.SiteDir}
 	for _, dir := range dirs {
-		fmt.Println("Clean:", dir)
+		fmt.Println("clean:", dir)
 		err := os.RemoveAll(dir)
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
-
 }
