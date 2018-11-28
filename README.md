@@ -79,9 +79,11 @@ modoc build
 编辑`config.yaml`文件, 重新build或者重启serve.
 ```
 # 网站名称
-site_name: modoc
+site_name: {{siteName}}
 # 网站端口
 dev_addr: ":9000"
+# git版本库地址
+repo_url:
 # 网站图标
 favicon: 
 # 网站作者
@@ -94,16 +96,17 @@ site_dir: site
 index_title: 首页
 # 模板主题
 theme: default
-# 默认皮肤
+# 默认皮肤(default amelia cerulean cosmo cyborg flatly 
+# journal readable simplex slate spacelab united yeti)
 skin: default
 # 是否显示切换皮肤功能
-change_skin: true
+change_skin: false
 # 是否将链接里的汉字转成拼音
 link_pinyin: true
 # 是否启用上一页下一页
 prev_next: true
 # 是否启用搜索
-search: true
+search: true`
 ```
 
 ## 自定义导航菜单

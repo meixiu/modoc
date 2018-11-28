@@ -37,10 +37,11 @@ site_dir: site
 index_title: 首页
 # 模板主题
 theme: default
-# 默认皮肤
+# 默认皮肤(default amelia cerulean cosmo cyborg flatly 
+# journal readable simplex slate spacelab united yeti)
 skin: default
 # 是否显示切换皮肤功能
-change_skin: true
+change_skin: false
 # 是否将链接里的汉字转成拼音
 link_pinyin: true
 # 是否启用上一页下一页
